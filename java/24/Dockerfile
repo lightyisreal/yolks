@@ -2,7 +2,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:24-jdk-noble
 
 LABEL       author="Pillow" maintainer="45460688+lightyisreal@users.noreply.github.com"
 
-LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
+LABEL       org.opencontainers.image.source="https://github.com/lightyisreal/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apt update -y \
