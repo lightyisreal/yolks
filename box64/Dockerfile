@@ -21,7 +21,7 @@ RUN          update-locale lang=en_US.UTF-8 \
 ##Install box64
 RUN         wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list \
             && wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg  \
-            && apt update && apt install box64-rpi4arm64 -y
+            && apt update && apt install box64 -y
 
 
 
