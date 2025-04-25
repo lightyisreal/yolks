@@ -14,7 +14,7 @@ RUN          apt update \
 ## Install dependencies
 RUN          apt install -y libc++-dev libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools libatomic1 libsdl1.2debian libsdl2-2.0-0 \
              libfontconfig libicu72 icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadb-dev libmariadb-dev-compat libduktape207 locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates \
-             libz3-dev rapidjson-dev tzdata libevent-dev libzip4 libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 build-essential cmake libgdiplus libstdc++6 winbind
+             libz3-dev rapidjson-dev tzdata libevent-dev libzip4 libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 build-essential cmake libgdiplus libstdc++6 libntlm0 winbind xvfb xauth
 			 
 ## Configure locale
 RUN          update-locale lang=en_US.UTF-8 \
@@ -35,6 +35,11 @@ RUN		useradd -d /home/container -m container
 USER    container
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
+ENV     DISPLAY=:0
+ENV     DISPLAY_WIDTH=1024
+ENV     DISPLAY_HEIGHT=768
+ENV     DISPLAY_DEPTH=16
+ENV     XVFB=1
 
 COPY    ./entrypoint.sh /entrypoint.sh
 CMD     ["/bin/bash", "/entrypoint.sh"]
