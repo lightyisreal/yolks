@@ -29,7 +29,7 @@ RUN         wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt
 ## Install hangover
 RUN         wget https://github.com/AndreRH/hangover/releases/download/hangover-10.6.1/hangover_10.6.1_debian12_bookworm_arm64.tar -O hangover.tar \
             && tar -xvf hangover.tar \
-            && dpkg -i hangover-*.deb
+            && for pkg in hangover-*.deb; do sudo apt install -y "$pkg"; done
 
 RUN		useradd -d /home/container -m container
 USER    container
